@@ -2,6 +2,7 @@ import random
 import pytest
 from selenium.webdriver.common.by import By
 
+@pytest.mark.flaky(reruns=3, reruns_delay=2)
 def test_example(selenium):
     selenium.get('https://bstackdemo.com/')
 
@@ -26,3 +27,23 @@ def test_example(selenium):
 
     # checking whether product has been added to cart by comparing product name
     assert productCartText == productText
+
+@pytest.mark.smoke
+@pytest.mark.flaky(reruns=2)
+@pytest.mark.timeout(60)
+def test_product_filters(selenium):
+    selenium.get('https://bstackdemo.com/')
+
+    # Click on vendor filter
+    selenium.find_element(By.XPATH, '//span[text()="Apple"]').click()
+
+    # Get the count of displayed products
+    product_items = selenium.find_elements(By.CSS_SELECTOR, '.shelf-item:not(.shelf-item--hidden)')
+
+    # Check filter is applied
+    assert len(product_items) > 0, "No products displayed after applying filter"
+
+    # Verify filtered products are from Apple
+    for item in product_items:
+        product_title = item.find_element(By.CSS_SELECTOR, '.shelf-item__title').text
+        assert "iPhone" in product_title or "MacBook" in product_title, f"Non-Apple product found: {product_title}"
