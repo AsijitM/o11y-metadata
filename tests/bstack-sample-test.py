@@ -14,7 +14,7 @@ def test_example(selenium):
     selenium.find_element(By.CLASS_NAME, 'float-cart__content')
 
     # locating product in cart and getting name of the product in cart
-    productCartText = selenium.find_element(By.XPATH, '//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1').text
+    productCartText = selenium.find_element(By.XPATH, '//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]').text
 
     # checking whether product has been added to cart by comparing product name
     assert productCartText == productText
