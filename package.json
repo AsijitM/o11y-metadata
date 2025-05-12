@@ -13,6 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ci-cd-git-diff-analyzer": "^1.1.0"
+    "ci-cd-git-diff-analyzer": "^1.2.0"
   }
 }
