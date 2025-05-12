@@ -3,6 +3,7 @@ import pytest
 from selenium.webdriver.common.by import By
 
 @pytest.mark.flaky(reruns=3, reruns_delay=2)
+@pytest.mark.smoke
 def test_example(selenium):
     selenium.get('https://bstackdemo.com/')
 
