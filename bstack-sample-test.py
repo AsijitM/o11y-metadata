@@ -18,3 +18,6 @@ def test_example(selenium):
 
     # checking whether product has been added to cart by comparing product name
     assert productCartText == productText
+
+def new_test():
+    assert 2 + 2 == 4
