@@ -3,3 +3,5 @@ __pycache__
 .pytest_cache
 env
 local.log
+node_modules
+log
