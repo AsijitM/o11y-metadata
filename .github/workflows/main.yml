@@ -27,7 +27,7 @@ jobs:
 
       - name: Run Git Diff Analyzer
         id: git-diff
-        run: node node_modules/ci-cd-git-diff-analyzer/index.js --diff
+        run: npm run diff
         env:
           GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 
